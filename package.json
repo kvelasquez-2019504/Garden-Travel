@@ -4,7 +4,9 @@
   "description": "Este proyecto esta enfocado a ofrecer distintas ubicaciones de hotel\u001b[C\u001b[D\u001b[D\u001b[D\u001b[Da poder registrarse.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon index.js",
+    "dev":"nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +28,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.2",
     "morgan": "^1.10.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
