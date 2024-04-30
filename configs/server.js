@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
 import servicioRoutes from '../src/servicios/servicios.routes.js'
+import paqueteServicioRoutes from '../src/paqueteServicios/paqueteServicio.routes.js'
 
 class Server {
     constructor() {
@@ -13,6 +14,7 @@ class Server {
         this.port = process.env.PORT;
 
         this.serviciosPath = '/GardenTravel/v1/servicio'
+        this.paqueteServicioRoutes = '/GardenTravel/v1/paqueteServicio'
 
         this.middlewares();
         this.conectarDB();
@@ -32,6 +34,7 @@ class Server {
 
     routes() {
         this.app.use(this.serviciosPath, servicioRoutes)
+        this.app.use(this.paqueteServicioRoutes, paqueteServicioRoutes)
     }
 
     listen() {

@@ -34,9 +34,9 @@ export const createServicio = async (req, res) => {
 export const updateServicio = async (req, res) => {
 
     const { id } = req.body;
-    const { _id, ...resto } = req.body;
+    const { _id, ...rest } = req.body;
 
-    await Servicio.findByIdAndUpdate(id, resto)
+    await Servicio.findByIdAndUpdate(id, rest)
 
     const servicio = await Servicio.findOne({ _id: id });
 
