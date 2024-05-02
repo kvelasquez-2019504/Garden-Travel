@@ -10,7 +10,7 @@ import {
 const router = Router()
 
 // Listar hoteles, la función listarHoteles trae todos los hoteles de la base de datos
-router.get("/", listarHoteles)
+router.get("/lista", listarHoteles)
 
 // Crear hotel, la función crearHotel crea un nuevo hotel en la base de datos
 router.post(

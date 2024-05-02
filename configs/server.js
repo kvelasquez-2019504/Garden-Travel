@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
 import servicioRoutes from '../src/servicios/servicios.routes.js'
 import paqueteServicioRoutes from '../src/paqueteServicios/paqueteServicio.routes.js'
+import hotelesRoutes from '../src/hoteles/hoteles.routes.js'
 
 class Server {
     constructor() {
@@ -15,6 +16,7 @@ class Server {
 
         this.serviciosPath = '/GardenTravel/v1/servicio'
         this.paqueteServicioRoutes = '/GardenTravel/v1/paqueteServicio'
+        this.hotelesPath = '/GardenTravel/v1/hoteles'
 
         this.middlewares();
         this.conectarDB();
@@ -35,6 +37,7 @@ class Server {
     routes() {
         this.app.use(this.serviciosPath, servicioRoutes)
         this.app.use(this.paqueteServicioRoutes, paqueteServicioRoutes)
+        this.app.use(this.hotelesPath, hotelesRoutes)
     }
 
     listen() {

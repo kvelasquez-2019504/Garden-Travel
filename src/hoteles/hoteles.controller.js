@@ -1,5 +1,5 @@
 import { response, request } from "express";
-import Hotel from "./hoteles.model.js";
+import Hotel from "./hotel.model.js";
 
 // Listar hoteles (GET) 
 export const listarHoteles = async (req, res) => {
