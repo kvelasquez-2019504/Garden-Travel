@@ -27,7 +27,7 @@ class Server {
         this.userPath = '/GardenTravel/v1/user'
         this.authPath = '/GardenTravel/v1/auth'
         this.reservacionPath = '/GardenTravel/v1/reservacion'
-        //this.facturaPath = '/GardenTravel/v1/factura'
+        this.facturaPath = '/GardenTravel/v1/factura'
         this.reservarEventoPath = '/GardenTravel/v1/reservarEvento'
 
         this.middlewares();
@@ -54,7 +54,7 @@ class Server {
         this.app.use(this.userPath, userRoutes)
         this.app.use(this.authPath, authRoutes)
         this.app.use(this.reservacionPath, reservacionRoutes)
-        //this.app.use(this.facturaPath, facturaRoutes)
+        this.app.use(this.facturaPath, facturaRoutes)
         this.app.use(this.reservarEventoPath, reservarEventoRoutes);
     }
 
