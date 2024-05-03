@@ -8,12 +8,12 @@ import { dbConnection } from './mongo.js';
 import servicioRoutes from '../src/servicios/servicios.routes.js'
 import paqueteServicioRoutes from '../src/paqueteServicios/paqueteServicio.routes.js'
 import hotelesRoutes from '../src/hoteles/hoteles.routes.js'
-import tipoHabitacion from '../src/tipoHabitacion/tipoHabitaciones.routes.js'
+//import tipoHabitacion from '../src/tipoHabitacion/tipoHabitaciones.routes.js'
 import userRoutes from '../src/usuarios/user.routes.js'
 import authRoutes from '../src/auth/auth.routes.js'
 import reservacionRoutes from '../src/reservaciones/reservacion.routes.js'
-import facturaRoutes from '../src/factura/factura.routes.js'
-import reservarEventoRoutes from '../src/reservarEvento/reservaEvento.routes.js'
+//import facturaRoutes from '../src/factura/factura.routes.js'
+//import reservarEventoRoutes from '../src/reservarEvento/reservaEvento.routes.js'
 
 class Server {
     constructor() {
@@ -27,8 +27,8 @@ class Server {
         this.userPath = '/GardenTravel/v1/user'
         this.authPath = '/GardenTravel/v1/auth'
         this.reservacionPath = '/GardenTravel/v1/reservacion'
-        this.facturaPath = '/GardenTravel/v1/factura'
-        this.reservarEventoPath = '/GardenTravel/v1/reservarEvento'
+        //this.facturaPath = '/GardenTravel/v1/factura'
+        //this.reservarEventoPath = '/GardenTravel/v1/reservarEvento'
 
         this.middlewares();
         this.conectarDB();
@@ -54,8 +54,8 @@ class Server {
         this.app.use(this.userPath, userRoutes)
         this.app.use(this.authPath, authRoutes)
         this.app.use(this.reservacionPath, reservacionRoutes)
-        this.app.use(this.facturaPath, facturaRoutes)
-        this.app.use(this.reservarEventoPath, reservarEventoRoutes);
+        //this.app.use(this.facturaPath, facturaRoutes)
+        //this.app.use(this.reservarEventoPath, reservarEventoRoutes);
     }
 
     listen() {
