@@ -1,0 +1,228 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "GardenTravels",
+    "collectionId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+    "dateExported": "2024-05-03T11:29:41.879Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "a6c89e01-eb21-4acb-83e1-02e161fd9347",
+            "name": "Login",
+            "containerId": "",
+            "created": "2024-05-03T08:37:18.264Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "9643f90a-ddf2-4379-b003-b7f3d550f5f0",
+            "name": "User",
+            "containerId": "",
+            "created": "2024-05-03T08:43:32.223Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "6cea6579-6b39-4b09-95ee-ad66eea5bba2",
+            "name": "ReservarEvento",
+            "containerId": "",
+            "created": "2024-05-03T10:03:57.725Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "933352d3-f9e8-4e2e-a1c3-7f3ce26cb2ba",
+            "name": "Reservacion",
+            "containerId": "",
+            "created": "2024-05-03T10:04:08.136Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "ccb45844-7ee4-498c-aa8f-169600bcced4",
+            "name": "Factura",
+            "containerId": "",
+            "created": "2024-05-03T10:04:34.012Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "3e5b80e1-a804-4eb3-a7c3-9f7fb1b96d8d",
+            "name": "Tipo Habitacion",
+            "containerId": "",
+            "created": "2024-05-03T10:07:29.250Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "9c00c269-8c12-4a7c-9afc-6c40e7aea6bf",
+            "name": "Servicio",
+            "containerId": "",
+            "created": "2024-05-03T10:07:34.618Z",
+            "sortNum": 70000
+        },
+        {
+            "_id": "ef8336aa-19ea-4d4e-a47c-4bfac1dd6e06",
+            "name": "PaqueteServicio",
+            "containerId": "",
+            "created": "2024-05-03T10:08:40.321Z",
+            "sortNum": 80000
+        },
+        {
+            "_id": "9d91d464-5637-4538-856b-059012e54def",
+            "name": "Hoteles",
+            "containerId": "",
+            "created": "2024-05-03T10:09:17.239Z",
+            "sortNum": 90000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "53aa3616-2437-4138-9b77-04089e6be8c0",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "a6c89e01-eb21-4acb-83e1-02e161fd9347",
+            "name": "Login",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-03T08:37:25.341Z",
+            "modified": "2024-05-03T09:00:17.467Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"pwoofie@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "66761402-1bc7-4221-a6d3-d2425b3af9c5",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "9643f90a-ddf2-4379-b003-b7f3d550f5f0",
+            "name": "Crearuser",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/user/crearUsuario",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-05-03T08:43:37.528Z",
+            "modified": "2024-05-03T08:59:54.227Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Pedro\",\n  \"apellido\": \"Woofie\",\n  \"email\": \"pwoofie@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "0d6db05c-010d-435f-b202-40980221e0dc",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "6cea6579-6b39-4b09-95ee-ad66eea5bba2",
+            "name": "CrearReservacion",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/reservarEvento/crearReservarEvento",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-05-03T10:04:46.101Z",
+            "modified": "2024-05-03T11:13:24.882Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"usuario\": \"6634a7985a27fbd0f6182ee0\",\n  \"paqueteServicio\": [\"6634bb14eae13c343359d1d3\"],\n  \"fechaInicio\": \"2024\",\n  \"fechaFin\": \"2025\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b338bce5-fee5-4c66-91a2-1343874b4f12",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "3e5b80e1-a804-4eb3-a7c3-9f7fb1b96d8d",
+            "name": "CrearHabitacion",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/tipoHabitacion/agregar",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-05-03T10:12:02.876Z",
+            "modified": "2024-05-03T10:34:48.436Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Habitacion UwU\",\n  \"paqueteServicios\": [\"6634bb14eae13c343359d1d3\"]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "6257eab4-6319-468e-898b-72e7475863bf",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "9c00c269-8c12-4a7c-9afc-6c40e7aea6bf",
+            "name": "CrearServicio",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/servicio",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-05-03T10:17:47.344Z",
+            "modified": "2024-05-03T10:19:42.695Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Servicio a;a\",\n  \"precio\": 150\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "50e622e8-1ce2-41e5-9afb-b97b6f30ab32",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "ef8336aa-19ea-4d4e-a47c-4bfac1dd6e06",
+            "name": "PaqueteServicio",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/paqueteServicio",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-05-03T10:20:12.245Z",
+            "modified": "2024-05-03T10:23:16.277Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombreServicio\": \"6634ba3feae13c343359d1d1\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "145cece3-aa0a-4fee-a30f-6c768a3f3680",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "9d91d464-5637-4538-856b-059012e54def",
+            "name": "crearHoteles",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/hoteles/agregar",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-05-03T10:36:17.900Z",
+            "modified": "2024-05-03T10:38:46.102Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"A;a\",\n  \"direccion\": \"zonz 12\",\n  \"telefono\": \"31983757\",\n  \"estrellas\": 2,\n  \"habitaciones\": [\"6634bdc9eae13c343359d1d5\"],\n  \"habOcupadas\": [\"6634bdc9eae13c343359d1d5\"]\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "541a1e33-faed-4a5a-9ec6-b46760fe1206",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "933352d3-f9e8-4e2e-a1c3-7f3ce26cb2ba",
+            "name": "CrearReservacion",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/reservacion/crearReservacion",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-05-03T10:39:36.599Z",
+            "modified": "2024-05-03T10:42:25.392Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"usuario\": \"6634a4d66bbb9f4b91b299d9\",\n  \"habitacion\": [\"6634bdc9eae13c343359d1d5\"],\n  \"fechaInicio\": \"2024\",\n  \"fechaFin\": \"2025\",\n  \"total\": 15.0\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "1e1141aa-7c65-4a0e-bc95-8bb387867e61",
+            "colId": "518f8b78-cd2e-4a90-98c7-2d5e1deec876",
+            "containerId": "ccb45844-7ee4-498c-aa8f-169600bcced4",
+            "name": "CrearFactura",
+            "url": "http://127.0.0.1:8080/GardenTravel/v1/factura/crearFactura",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-05-03T11:17:33.202Z",
+            "modified": "2024-05-03T11:22:03.370Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"reservacion\": [],\n  \"user\": [],\n  \"fecha\": \"2024\",\n  \"total\": 155.5\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "wljF-6JNlxKNSAdenNdj5G088cFDjPL9ZpmU6z5SoAb9NPv5qwXYdGnyg-FFe8n5syTfA7dQbye-FmvVcd8QJA"
+}
