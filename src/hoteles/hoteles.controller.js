@@ -5,7 +5,7 @@ import Hotel from "./hotel.model.js";
 export const listarHoteles = async (req, res) => {
 
     let hotelData;
-    hotelData = await Hotel.find();
+    hotelData = await Hotel.find({ estado: true });
 
     res.status(200).json({
         hotelData
