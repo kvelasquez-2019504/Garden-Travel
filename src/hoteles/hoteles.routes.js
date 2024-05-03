@@ -14,7 +14,7 @@ router.get("/lista", listarHoteles)
 
 // Crear hotel, la función crearHotel crea un nuevo hotel en la base de datos
 router.post(
-    '/agregarHotel',
+    '/agregar',
     [
 
     ],
@@ -23,7 +23,7 @@ router.post(
 
 // Actualizar hotel, la función actualizarHotel actualiza un hotel en la base de datos
 router.put(
-    '/actualizarHotel',
+    '/actualizar',
     [
 
     ],
@@ -32,7 +32,7 @@ router.put(
 
 // Eliminar hotel, la función eliminarHotel elimina un hotel de la base de datos
 router.delete(
-    '/eliminarHotel',
+    '/eliminar',
     [
 
     ],

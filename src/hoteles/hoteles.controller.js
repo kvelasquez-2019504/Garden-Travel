@@ -3,12 +3,12 @@ import Hotel from "./hotel.model.js";
 
 // Listar hoteles (GET) 
 export const listarHoteles = async (req, res) => {
-    
+
     let hotelData;
     hotelData = await Hotel.find();
 
     res.status(200).json({
-        hotelData   
+        hotelData
     })
 }
 
@@ -19,7 +19,7 @@ export const crearHotel = async (req, res) => {
     const hotel = new Hotel({ nombre, direccion, telefono, estrellas, habitaciones, habOcupadas })
 
     await hotel.save();
-    
+
     res.status(200).json({
         msg: "Hotel creado exitosamente"
     })
@@ -28,7 +28,7 @@ export const crearHotel = async (req, res) => {
 // Actualizar hotel (PUT)
 export const actualizarHotel = async (req, res) => {
 
-    const {id, ...rest} = req.body;
+    const { id, ...rest } = req.body;
     const hotel = await Hotel.findByIdAndUpdate(id, rest);
 
     res.status(200).json({
@@ -41,10 +41,10 @@ export const actualizarHotel = async (req, res) => {
 export const eliminarHotel = async (req, res) => {
 
     const { id } = req.body;
-    await Hotel.findByIdAndDelete(id);
+    await Hotel.findByIdAndUpdate(id, { $set: { estado: false } });
 
     res.status(200).json({
         msg: "Hotel eliminado exitosamente"
-    })   
+    })
 }
 
