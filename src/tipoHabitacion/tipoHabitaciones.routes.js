@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator"
-import { validar } from "../middlewares/validate-field.js";
+import { validarCampos } from "../middlewares/validarCampos.js";
 import {
     listarTipoHabitaciones,
     crearTipoHabitacion,
@@ -20,7 +20,7 @@ router.post(
     [
         check('nombre', 'El nombre es obligatorio').not().isEmpty(),
         check('paqueteServicios', 'El paquete de servicios es obligatorio').not().isEmpty(),
-        validar
+        validarCampos
     ],
     crearTipoHabitacion
 )
@@ -31,7 +31,7 @@ router.put(
     '/actualizar',
     [
         check('id', 'No es un ID válido').isMongoId(),
-        validar
+        validarCampos
     ],
     actualizarTipoHabitacion
 )
@@ -42,7 +42,7 @@ router.delete(
     '/eliminar',
     [
         check('id', 'No es un ID válido').isMongoId(),
-        validar
+        validarCampos
     ],
     eliminarTipoHabitacion
 )

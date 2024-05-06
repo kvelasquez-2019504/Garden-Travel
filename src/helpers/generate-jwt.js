@@ -1,18 +1,17 @@
-import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken'
 
-export const generateToken = (userId = '') => {
+export const generarJWT = (uid = '', email = '') => {
     return new Promise((resolve, reject) => {
-        const payload = { userId };
+        const payload = { uid, email}
         jwt.sign(
             payload,
             process.env.SECRETORPRIVATEKEY,
             {
-                expiresIn: "1h"
+                expiresIn: '8h'
             },
-            (err, token) => {
-                err ? (console.log(err), reject('ERROR NO GENERATE')) : resolve(token);
+            (err, token)=>{
+                err ? (console.log(err),reject('we have a proble to generate the token')) : resolve(token)
             }
-        );
-    });
+        )
+    })
 }
-

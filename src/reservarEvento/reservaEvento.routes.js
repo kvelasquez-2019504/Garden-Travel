@@ -1,6 +1,6 @@
 import { check } from "express-validator";
 import { Router } from "express";
-import { validar } from "../middlewares/validate-field.js";
+import { validarCampos } from "../middlewares/validarCampos.js";
 import { listarReservarEventos, crearReservarEvento, actualizarReservarEvento, eliminarReservarEvento } from "./reservarEvento.controller.js";
 
 const router = Router();
@@ -12,17 +12,17 @@ router.post("/crearReservarEvento", [
     check('paqueteServicio', 'El paquete de servicios es obligatorio').not().isEmpty(),
     check('fechaInicio', 'La fecha de inicio es obligatoria').not().isEmpty(),
     check('fechaFin', 'La fecha de fin es obligatoria').not().isEmpty(),
-    validar
+    validarCampos
 ], crearReservarEvento);
 
 router.put("/actualizarReservarEvento/:id", [
     check("id", "No es un ID valido").isMongoId(),
-    validar
+    validarCampos
 ], actualizarReservarEvento);
 
 router.delete("/eliminarReservarEvento/:id", [
     check("id", "No es un ID valido").isMongoId(),
-    validar
+    validarCampos
 ], eliminarReservarEvento);
 
 export default router;

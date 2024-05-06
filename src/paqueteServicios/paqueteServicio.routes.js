@@ -6,16 +6,15 @@ import {
     updatePaqueteServicio,
     deletePaqueteServicio
 } from "./paqueteServicios.controller.js"
-import { validar } from "../middlewares/validate-field.js";
-
+import { validarCampos } from "../middlewares/validarCampos.js";
 const router = Router()
 
 router.get("/", getPaqueteServicios)
 
 router.post("/", createPaqueteServicio)
 
-router.put("/", [check("id", "No es un ID valido").isMongoId(), validar], updatePaqueteServicio)
+router.put("/", [check("id", "No es un ID valido").isMongoId(), validarCampos], updatePaqueteServicio)
 
-router.delete("/", [check("id", "No es un ID valido").isMongoId(), validar], deletePaqueteServicio)
+router.delete("/", [check("id", "No es un ID valido").isMongoId(), validarCampos], deletePaqueteServicio)
 
 export default router;

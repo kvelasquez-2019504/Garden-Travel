@@ -6,7 +6,7 @@ import {
     actualizarHotel,
     eliminarHotel
 } from "./hoteles.controller.js"
-import { validar } from "../middlewares/validate-field.js";
+import { validarCampos } from "../middlewares/validarCampos.js";
 
 const router = Router()
 
@@ -20,7 +20,7 @@ router.post(
         check('nombre', 'El nombre es obligatorio').not().isEmpty(),
         check('direccion', 'La dirección es obligatoria').not().isEmpty(),
         check('telefono', 'El teléfono es obligatorio').not().isEmpty(),
-        validar
+        validarCampos
     ],
     crearHotel
 )
@@ -30,7 +30,7 @@ router.put(
     '/actualizar',
     [
         check('id', 'No es un ID válido').isMongoId(),
-        validar
+        validarCampos
     ],
     actualizarHotel
 )
@@ -40,7 +40,7 @@ router.delete(
     '/eliminar',
     [
         check('id', 'No es un ID válido').isMongoId(),
-        validar
+        validarCampos
     ],
     eliminarHotel
 )
