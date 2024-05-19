@@ -51,3 +51,16 @@ export const crearFactura = async (req, res) => {
         msg: "Factura creada exitosamente"
     });
 }
+
+export const obtenerFacturas = async (req, res) => {
+    const facturas = await Factura.find({ estado: true }).populate("usuario").populate("reservacion").populate("reservacionEvento");
+    res.status(200).json(facturas);
+}
+
+export const eliminarFactura = async (req, res) => {
+    const { id } = req.body;
+    await Factura.findByIdAndUpdate(id, { estado: false });
+    res.status(200).json({
+        msg: "Factura eliminada exitosamente"
+    });
+}

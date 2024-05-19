@@ -19,6 +19,10 @@ const FacturaSchema = mongoose.Schema({
         default: Date.now,
         required: [true, "La fecha es obligatoria"]
     },
+    estado: {
+        type: Boolean,
+        default: true
+    },
     total: {
         type: Number,
         required: [true, "El total es obligatorio"]
