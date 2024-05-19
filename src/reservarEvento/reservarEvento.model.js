@@ -6,7 +6,7 @@ const ReservarEventoSchema = mongoose.Schema({
         ref: "Usuario",
         required: [true, "El usuario es obligatorio"]
     },
-    paqueteServico: {
+    paqueteServicio: {
         type: [mongoose.Schema.Types.ObjectId],
         ref: "PaqueteServicio",
         required: [true, "El paquete de servicio es obligatorio"]
@@ -20,9 +20,8 @@ const ReservarEventoSchema = mongoose.Schema({
         required: [true, "La fecha de fin es obligatoria"]
     },
     estado: {
-        type: String,
-        enum: ["PENDIENTE", "CONFIRMADA", "CANCELADA"],
-        default: "PENDIENTE"
+        type: Boolean,
+        default: true
     },
 });
 

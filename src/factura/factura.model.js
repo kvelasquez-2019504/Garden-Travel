@@ -5,12 +5,18 @@ const FacturaSchema = mongoose.Schema({
         type: Array,
         required: [true, "La reservación es obligatoria"]
     },
-    usuario: {
+    reservacionEvento: {
         type: Array,
+        required: [true, "La reservación de evento es obligatoria"]
+    },
+    usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Usuario",
         required: [true, "El usuario es obligatorio"]
     },
-    fecha: {
+    fechaCreacion: {
         type: Date,
+        default: Date.now,
         required: [true, "La fecha es obligatoria"]
     },
     total: {

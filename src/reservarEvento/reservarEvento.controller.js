@@ -1,14 +1,15 @@
 import ReservarEvento from './reservarEvento.model.js';
 
 export const listarReservarEventos = async (req, res) => {
-    const reservarEventos = await ReservarEvento.find({ estado: true });
+    const reservarEventos = await ReservarEvento.find().populate('usuario').populate('paqueteServicio');
     res.status(200).json({
         reservarEventos
     });
 }
 
 export const crearReservarEvento = async (req, res) => {
-    const { usuario, paqueteServicio, fechaInicio, fechaFin } = req.body;
+    const usuario = req.user;
+    const { paqueteServicio, fechaInicio, fechaFin } = req.body;
     const reservarEvento = new ReservarEvento({ usuario, paqueteServicio, fechaInicio, fechaFin });
 
     await reservarEvento.save();

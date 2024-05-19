@@ -20,6 +20,7 @@ router.post(
     [
         check('nombre', 'El nombre es obligatorio').not().isEmpty(),
         check('paqueteServicios', 'El paquete de servicios es obligatorio').not().isEmpty(),
+        check('precio', 'El precio es obligatorio').not().isEmpty(),
         validar
     ],
     crearTipoHabitacion

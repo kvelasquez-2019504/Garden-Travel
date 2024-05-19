@@ -1,40 +1,53 @@
 import Factura from "./factura.model.js";
+import ReservarEvento from "../reservarEvento/reservarEvento.model.js";
+import Reservacion from "../reservaciones/reservacion.model.js";
+import paqueteServicioModel from "../paqueteServicios/paqueteServicio.model.js";
+import Servicio from "../servicios/servicios.model.js";
+import Usuario from "../usuarios/usuario.model.js";
 
 export const crearFactura = async (req, res) => {
-    try {
-        const factura = new Factura(req.body);
-        await factura.save();
-        res.status(201).json(factura);
-    } catch (error) {
-        res.status(500).json({
-            mensaje: "Ocurrio un error",
-            error
-        });
-    }
-};
+    const usuario = req.user;
+    const { reservacion, reservacionEvento } = req.body;
+    const idsReservacion = reservacion;
+    const idsReservarEvento = reservacionEvento;
 
-export const listarFacturas = async (req, res) => {
-    try {
-        const facturas = await Factura.find();
-        res.json(facturas);
-    } catch (error) {
-        res.status(500).json({
-            mensaje: "Ocurrio un error",
-            error
+    async function sumarPreciosServicios() {
+        let total = 0;
+        
+        const reservacionPromises = idsReservacion.map(async (id) => {
+            const reservacion = await Reservacion.findById(id);
+            total += reservacion.total;
         });
+        
+        const reservarEventoPromises = idsReservarEvento.map(async (id) => {
+            const reservarEvento = await ReservarEvento.findById(id);
+            const paqueteServicios = reservarEvento.paqueteServicio;
+            
+            const paquetePromises = paqueteServicios.map(async (id) => {
+                const paqueteServicio = await paqueteServicioModel.findById(id);
+                let idServicios = paqueteServicio.nombreServicio;
+                
+                const servicioPromises = idServicios.map(async (idServicio) => {
+                    const servicio = await Servicio.findById(idServicio);
+                    total += servicio.precio;
+                });
+                await Promise.all(servicioPromises);
+            });
+            await Promise.all(paquetePromises);
+        });
+        
+        await Promise.all(reservacionPromises);
+        await Promise.all(reservarEventoPromises);
+        
+        return total;
     }
+
+    let total = await sumarPreciosServicios();
+    
+    const factura = new Factura({ usuario, reservacion, reservacionEvento, total });
+
+    await factura.save();
+    res.status(200).json({
+        msg: "Factura creada exitosamente"
+    });
 }
-
-export const actualizarFactura = async (req, res) => {
-    try {
-        const factura = await Factura.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(factura);
-    }
-    catch (error) {
-        res.status(500).json({
-            mensaje: "Ocurrio un error",
-            error
-        });
-    }
-}
-

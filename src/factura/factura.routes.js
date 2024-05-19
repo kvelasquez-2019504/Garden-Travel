@@ -2,21 +2,18 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { validar } from "../middlewares/validate-field.js";
 
-import { listarFacturas, crearFactura, actualizarFactura } from "./factura.controller.js";
+import { crearFactura} from "./factura.controller.js";
+import { validarJWT } from "../helpers/validar-jwt.js";
 
 const router = Router();
 
-router.get('/listaFacturas', listarFacturas);
-
-router.post('/crearFactura', [
+router.post('/crear', [
+    validarJWT,
+    check('reservacion', 'El id de la reservacion es obligatorio').not().isEmpty(),
+    check('reservacionEvento', 'El id del reservar evento es obligatorio').not().isEmpty(),
     validar
 ], crearFactura);
 
-router.put('/actualizarFactura/:id', [
-    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-    check('descripcion', 'La descripcion es obligatoria').not().isEmpty(),
-    check('precio', 'El precio es obligatorio').not().isEmpty(),
-    validar
-], actualizarFactura);
+
 
 export default router;

@@ -22,7 +22,6 @@ export const getPaqueteServicios = async (req = request, res = response) => {
 
 
 export const createPaqueteServicio = async (req, res) => {
-
     const { nombreServicio } = req.body;
     const paqueteServicio = new PaqueteServicio({ nombreServicio })
 
@@ -48,7 +47,6 @@ export const updatePaqueteServicio = async (req, res) => {
     });
 
 }
-
 
 export const deletePaqueteServicio = async (req, res) => {
     const { id } = req.body;

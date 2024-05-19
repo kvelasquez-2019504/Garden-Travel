@@ -13,6 +13,7 @@ const ReservacionSchema = mongoose.Schema({
     },
     fechaInicio: {
         type: Date,
+        default: Date.now,
         required: [true, "La fecha de inicio es obligatoria"]
     },
     fechaFin: {
@@ -20,9 +21,8 @@ const ReservacionSchema = mongoose.Schema({
         required: [true, "La fecha de fin es obligatoria"]
     },
     estado: {
-        type: String,
-        enum: ["PENDIENTE", "CONFIRMADA", "CANCELADA"],
-        default: "PENDIENTE"
+        type: Boolean,
+        default: true
     },
     total: {
         type: Number,

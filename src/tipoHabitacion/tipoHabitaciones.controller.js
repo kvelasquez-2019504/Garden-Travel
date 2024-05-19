@@ -11,8 +11,8 @@ export const listarTipoHabitaciones = async (req, res) => {
 
 // Crear tipo de habitacion (POST)
 export const crearTipoHabitacion = async (req, res) => {
-    const { nombre, paqueteServicios } = req.body;
-    const tipoHabitacion = new TipoHabitacion({ nombre, paqueteServicios });
+    const { nombre, paqueteServicios, precio } = req.body;
+    const tipoHabitacion = new TipoHabitacion({ nombre, paqueteServicios, precio });
     await tipoHabitacion.save();
     res.status(200).json({
         msg: "Tipo de habitacion creado exitosamente"

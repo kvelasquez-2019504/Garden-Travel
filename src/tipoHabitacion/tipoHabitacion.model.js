@@ -9,6 +9,10 @@ const tipoHabitacionSchema = new mongoose.Schema({
         type: Array,
         required: true
     },
+    precio: {
+        type: Number,
+        required: true
+    },
     estado: {
         type: Boolean,
         default: true
