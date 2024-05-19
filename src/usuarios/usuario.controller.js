@@ -1,4 +1,4 @@
-import User from './usuarios.model.js';
+import User from './usuario.model.js';
 import bcryptjs from 'bcryptjs';
 
 // Listar usuarios (GET)
@@ -20,6 +20,33 @@ export const crearUsuario = async (req, res) => {
     await usuario.save();
     res.status(200).json({
         msg: "Usuario creado exitosamente"
+    });
+}
+
+export const updateOwnUser = async (req, res) => {
+    const id = req.user;
+    const { password, email, role, ...rest } = req.body;
+
+    if (password) {
+        const salt = bcryptjs.genSaltSync();
+        rest.password = bcryptjs.hashSync(password, salt);
+    }
+
+    await User.findByIdAndUpdate(id, rest);
+
+    const usuario = await User.findById(id);
+    res.status(200).json({
+        msg: "Usuario actualizado exitosamente",
+        usuario
+    });
+}
+
+export const deleteOwnUser = async (req, res) => {
+    const id = req.user;
+    const usuario = await User.findByIdAndUpdate(id, { state: false });
+    res.status(200).json({
+        msg: "Usuario eliminado exitosamente",
+        usuario
     });
 }
 

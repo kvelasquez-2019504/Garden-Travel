@@ -1,11 +1,18 @@
 import bcryptjs from 'bcryptjs';
-import User from '../usuarios/usuarios.model.js';
+import User from '../usuarios/usuario.model.js';
 import { generateToken } from '../helpers/generate-jwt.js';
 
 // Login de usuario (POST)
 export const login = async (req, res) => {
     const { email, password } = req.body;
     const usuario = await User.findOne({ email: email });
+
+    if(usuario.state === false){
+        return res.status(400).json({
+            msg: "Usuario eliminado"
+        });
+    }
+
     console.log(usuario);
     if (!usuario) {
         return res.status(400).json({

@@ -9,7 +9,7 @@ import servicioRoutes from '../src/servicios/servicios.routes.js'
 import paqueteServicioRoutes from '../src/paqueteServicios/paqueteServicio.routes.js'
 import hotelesRoutes from '../src/hoteles/hoteles.routes.js'
 import tipoHabitacion from '../src/tipoHabitacion/tipoHabitaciones.routes.js'
-import userRoutes from '../src/usuarios/user.routes.js'
+import usuarioRoutes from '../src/usuarios/usuario.routes.js'
 import authRoutes from '../src/auth/auth.routes.js'
 import reservacionRoutes from '../src/reservaciones/reservacion.routes.js'
 import facturaRoutes from '../src/factura/factura.routes.js'
@@ -24,7 +24,7 @@ class Server {
         this.paqueteServicioRoutes = '/GardenTravel/v1/paqueteServicio'
         this.hotelesPath = '/GardenTravel/v1/hoteles'
         this.tipoHabitacionPath = '/GardenTravel/v1/tipoHabitacion'
-        this.userPath = '/GardenTravel/v1/user'
+        this.usuarioPath = '/GardenTravel/v1/usuario'
         this.authPath = '/GardenTravel/v1/auth'
         this.reservacionPath = '/GardenTravel/v1/reservacion'
         this.facturaPath = '/GardenTravel/v1/factura'
@@ -51,7 +51,7 @@ class Server {
         this.app.use(this.paqueteServicioRoutes, paqueteServicioRoutes)
         this.app.use(this.hotelesPath, hotelesRoutes)
         this.app.use(this.tipoHabitacionPath, tipoHabitacion)
-        this.app.use(this.userPath, userRoutes)
+        this.app.use(this.usuarioPath, usuarioRoutes)
         this.app.use(this.authPath, authRoutes)
         this.app.use(this.reservacionPath, reservacionRoutes)
         this.app.use(this.facturaPath, facturaRoutes)

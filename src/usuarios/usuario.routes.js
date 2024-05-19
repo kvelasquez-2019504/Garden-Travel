@@ -4,10 +4,13 @@ import {
     crearUsuario,
     eliminarUsuario,
     listarUsuarios,
-    actualizarUsuario
+    actualizarUsuario,
+    updateOwnUser,
+    deleteOwnUser
 
-} from "./user.controller.js";
+} from "./usuario.controller.js";
 import { validar } from "../middlewares/validate-field.js";
+import { validarJWT } from "../helpers/validar-jwt.js";
 
 const router = Router();
 
@@ -28,21 +31,21 @@ router.post(
 );
 
 router.put(
-  "/:id",
+  "/update",
   [
-    check("id", "No es un ID válido").isMongoId(),
-    validar,
+    validarJWT,
+    validar
   ],
-  actualizarUsuario
+  updateOwnUser
 );
 
 router.delete(
-  "/:id",
+  "/delete",
   [
-    check("id", "No es un ID válido").isMongoId(),
+    validarJWT,
     validar,
   ],
-  eliminarUsuario
+  deleteOwnUser
 );
 
 export default router;

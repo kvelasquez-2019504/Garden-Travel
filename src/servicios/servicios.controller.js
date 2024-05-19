@@ -18,7 +18,6 @@ export const getServicios = async (req = request, res = response) => {
     })
 }
 
-
 export const createServicio = async (req, res) => {
 
     const { nombre, precio } = req.body;
@@ -33,9 +32,8 @@ export const createServicio = async (req, res) => {
 
 export const updateServicio = async (req, res) => {
 
-    const { id } = req.body;
     const { _id, ...rest } = req.body;
-
+    const id = _id;
     await Servicio.findByIdAndUpdate(id, rest)
 
     const servicio = await Servicio.findOne({ _id: id });
@@ -48,13 +46,13 @@ export const updateServicio = async (req, res) => {
 }
 
 export const deleteServicio = async (req, res) => {
-    const { id } = req.body;
+    const id = req.body.id;
     await Servicio.findByIdAndUpdate(id, { state: false })
 
-    const servicio = await Servicio.findOne({ _id: id })
+    const servicio = await Servicio.findById(id);
 
     res.status(200).json({
-        msg: "Usuario eliminado exitosamente",
+        msg: "Servicio eliminado exitosamente",
         servicio,
     });
 }

@@ -15,8 +15,8 @@ export const listarHoteles = async (req, res) => {
 // Crear hotel (POST)
 export const crearHotel = async (req, res) => {
 
-    const { nombre, direccion, telefono, estrellas, habitaciones, habOcupadas } = req.body;
-    const hotel = new Hotel({ nombre, direccion, telefono, estrellas, habitaciones, habOcupadas })
+    const { nombre, direccion, telefono, estrellas, habitaciones, habOcupadas, img } = req.body;
+    const hotel = new Hotel({ nombre, direccion, telefono, estrellas, habitaciones, habOcupadas, img })
 
     await hotel.save();
 

@@ -25,6 +25,10 @@ const HotelSchema = mongoose.Schema({
         type: Array,
         required: [true, "Las abitaciones ocupadas son obligatorias"]
     },
+    img: {
+        type: String,
+        required: [true, "La imagen es obligatoria"]
+    },
     estado: {
         type: Boolean,
         default: true

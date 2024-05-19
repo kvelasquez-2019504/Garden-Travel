@@ -9,7 +9,7 @@ export const validarJWT = (req, res, next) => {
     }
 
     try {
-        token = token.replace(/^Bearer\s+"|"\s*$/g, '');
+        token = token.replace(/^Bearer\s+/, '')
 
         const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY)
 

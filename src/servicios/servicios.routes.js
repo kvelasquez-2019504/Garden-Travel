@@ -12,7 +12,7 @@ const router = Router()
 router.get("/", getServicios)
 
 router.post(
-    "/",
+    "/create",
     [
         check("nombre", "El nombre es obligatorio").not().isEmpty(),
         check("precio", "El precio es obligatorio").not().isEmpty()
@@ -21,7 +21,7 @@ router.post(
 )
 
 router.put(
-    "/",
+    "/update",
     [
         check("id", "No es un ID valido").isMongoId(),
     ],
@@ -29,7 +29,7 @@ router.put(
 )
 
 router.delete(
-    "/",
+    "/eliminar",
     [
         check("id", "No es un ID valido").isMongoId(),
     ],
