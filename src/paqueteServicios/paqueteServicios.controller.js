@@ -22,8 +22,8 @@ export const getPaqueteServicios = async (req = request, res = response) => {
 
 
 export const createPaqueteServicio = async (req, res) => {
-    const { nombreServicio } = req.body;
-    const paqueteServicio = new PaqueteServicio({ nombreServicio })
+    const { nombrePservicio, nombreServicio, img } = req.body;
+    const paqueteServicio = new PaqueteServicio({ nombrePservicio, nombreServicio, img })
 
     await paqueteServicio.save();
 
