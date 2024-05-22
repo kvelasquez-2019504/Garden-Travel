@@ -1,9 +1,12 @@
 import { response, request } from "express";
 import TipoHabitacion from "./tipoHabitacion.model.js";
+import PaqueteServicio from "../paqueteServicios/paqueteServicio.model.js";
 
 // Listar tipo de habitaciones (GET)
 export const listarTipoHabitaciones = async (req, res) => {
-    const tipoHabitaciones = await TipoHabitacion.find({ estado: true });
+    const tipoHabitaciones = await TipoHabitacion.find({ estado: true }).
+            populate('paqueteServicios', 'nombrePservicio')
+        ;
     res.status(200).json({
         tipoHabitaciones
     });

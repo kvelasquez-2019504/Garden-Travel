@@ -6,8 +6,9 @@ const tipoHabitacionSchema = new mongoose.Schema({
         required: true
     },
     paqueteServicios: {
-        type: Array,
-        required: true
+        type: [mongoose.Schema.Types.ObjectId],
+        required: true,
+        ref: 'PaqueteServicio'
     },
     precio: {
         type: Number,
