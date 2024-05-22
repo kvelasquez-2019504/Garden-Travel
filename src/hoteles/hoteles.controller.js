@@ -15,6 +15,13 @@ export const listarHoteles = async (req, res) => {
 // Crear hotel (POST)
 export const crearHotel = async (req, res) => {
     const { nombre, direccion, telefono, estrellas, habitaciones, habOcupadas, img } = req.body;
+
+    if (habitaciones < habOcupadas) {
+        return res.status(400).json({
+            msg: "El número de habitaciones ocupadas no puede ser mayor al número de habitaciones"
+        })
+    }
+
     const hotel = new Hotel({ nombre, direccion, telefono, estrellas, habitaciones, habOcupadas, img })
 
     await hotel.save();

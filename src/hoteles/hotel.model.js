@@ -17,10 +17,17 @@ const HotelSchema = mongoose.Schema({
         type: Number,
         required: [true, "Las estrellas son obligatorias"]
     },
-    habitaciones: {
-        type: Array,
-        required: [true, "Las abitaciones son obligatorias"]
-    },
+    habitaciones: [{
+        tipoHabitacion: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'TipoHabitacion',
+            required: true
+        },
+        cantidad: {
+            type: Number,
+            required: true
+        }
+    }],
     habOcupadas: {
         type: Array,
         required: [true, "Las abitaciones ocupadas son obligatorias"]

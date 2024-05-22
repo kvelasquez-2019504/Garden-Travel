@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const FacturaSchema = mongoose.Schema({
+    noBill: {
+        type: Number,
+        required: [true, "El número de factura es obligatorio"]
+    },
     reservacion: {
         type: Array,
         required: [true, "La reservación es obligatoria"]

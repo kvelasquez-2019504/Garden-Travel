@@ -6,11 +6,17 @@ const ReservacionSchema = mongoose.Schema({
         ref: "Usuario",
         required: [true, "El usuario es obligatorio"]
     },
-    habitacion: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "TipoHabitacion",
-        required: [true, "La habitación es obligatoria"]
-    },
+    habitaciones: [{
+        tipoHabitacion: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'TipoHabitacion',
+            required: true
+        },
+        cantidad: {
+            type: Number,
+            required: true
+        }
+    }],
     fechaInicio: {
         type: Date,
         default: Date.now,

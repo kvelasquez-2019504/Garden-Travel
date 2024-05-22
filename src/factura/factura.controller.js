@@ -10,6 +10,7 @@ export const crearFactura = async (req, res) => {
     const { reservacion, reservacionEvento } = req.body;
     const idsReservacion = reservacion;
     const idsReservarEvento = reservacionEvento;
+    const noBill = Math.floor(Math.random() * 1000000);
 
     async function sumarPreciosServicios() {
         let total = 0;
@@ -44,7 +45,7 @@ export const crearFactura = async (req, res) => {
 
     let total = await sumarPreciosServicios();
     
-    const factura = new Factura({ usuario, reservacion, reservacionEvento, total });
+    const factura = new Factura({ noBill,usuario, reservacion, reservacionEvento, total });
 
     await factura.save();
     res.status(200).json({
@@ -53,7 +54,7 @@ export const crearFactura = async (req, res) => {
 }
 
 export const obtenerFacturas = async (req, res) => {
-    const facturas = await Factura.find({ estado: true }).populate("usuario").populate("reservacion").populate("reservacionEvento");
+    const facturas = await Factura.find({ estado: true }).populate("reservacion").populate("reservacionEvento").populate("usuario");
     res.status(200).json(facturas);
 }
 
