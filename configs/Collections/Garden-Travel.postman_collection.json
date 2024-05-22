@@ -320,7 +320,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombreServicio\": [\"664954ebdde2c73080a00f63\", \"664974d512d861780be73ac3\", \"664974dc12d861780be73ac5\" ]\r\n}",
+							"raw": "{\r\n    \"nombreServicio\": [\"664954ebdde2c73080a00f63\" ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -452,7 +452,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"VIP\",\r\n    \"paqueteServicios\": [\"66498f063453d9c7ac9bd72e\", \"66498f3769c1bea3c87d6552\"],\r\n    \"precio\": 1005.50\r\n}",
+							"raw": "{\r\n    \"nombre\": \"DELUXE\",\r\n    \"paqueteServicios\": [\"664da6a08a35728e8461aa58\", \"66498f3769c1bea3c87d6552\"],\r\n    \"precio\": 1005.50\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -483,7 +483,24 @@
 					"name": "Listar",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/GardenTravel/v1/tipoHabitacion/lista",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"GardenTravel",
+								"v1",
+								"tipoHabitacion",
+								"lista"
+							]
+						}
 					},
 					"response": []
 				},
@@ -591,7 +608,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"Hotel1\",\r\n    \"direccion\": \"zona 12\",\r\n    \"telefono\": \"3198-3757\",\r\n    \"estrellas\": 5,\r\n    \"habitaciones\": [ \"6649a2d197cdd85c42bd0343\"], \r\n    \"habOcupadas\": [\"6649a2d197cdd85c42bd0343\"],\r\n    \"img\": \"fdfdafdfadfaf\"\r\n}",
+							"raw": "{\r\n    \"nombre\": \"Hotel1\",\r\n    \"direccion\": \"zona 12\",\r\n    \"telefono\": \"3198-3757\",\r\n    \"estrellas\": 5,\r\n    \"habitaciones\": [ \"6649a2d197cdd85c42bd0343\"], \r\n    \"habOcupadas\": [\"6649a2d197cdd85c42bd0343\"],\r\n    \"img\": \"https://www.google.com/imgres?q=messi&imgurl=https%3A%2F%2Fcnnespanol.cnn.com%2Fwp-content%2Fuploads%2F2024%2F05%2F240520180007-lionel-messi-maria-becerra-fiesta-miami-showbiz-full-169.jpg%3Fquality%3D100%26strip%3Dinfo%26w%3D414%26h%3D311%26crop%3D1&imgrefurl=https%3A%2F%2Fcnnespanol.cnn.com%2Ftag%2Flionel-messi%2F&docid=rn-kAfgdaKSbxM&tbnid=tvi2Wp0yce3tfM&vet=12ahUKEwiy2MXPwKCGAxXd5ckDHVN_CbYQM3oECBkQAA..i&w=414&h=311&hcb=2&ved=2ahUKEwiy2MXPwKCGAxXd5ckDHVN_CbYQM3oECBkQAA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -698,12 +715,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ4ZmEyZWI3MWNlNmUwNDBhNjg5MWQiLCJpYXQiOjE3MTYxMzk5MTcsImV4cCI6MTcxNjE0MzUxN30.J3-ABb9sbEW4lkrZ-sUvI-7VwbPYsCywSWN-DdhrNTU"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ4ZmEyZWI3MWNlNmUwNDBhNjg5MWQiLCJpYXQiOjE3MTYzNjUwOTgsImV4cCI6MTcxNjM2ODY5OH0.YztRXPSjhVHteWyiTounchB3upykugid2JAWWI5FG5o"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"habitacion\": \"6649b04bec765f30878b4df6\",\r\n    \"fechaFin\": \"2025\"\r\n}",
+							"raw": "{\r\n    \"habitaciones\": [ { \"tipoHabitacion\": \"664da6f493b28b868783157d\", \"cantidad\": 2 } ],\r\n    \"fechaFin\": \"2025\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -734,7 +751,24 @@
 					"name": "Listar",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/GardenTravel/v1/reservacion/listar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"GardenTravel",
+								"v1",
+								"reservacion",
+								"listar"
+							]
+						}
 					},
 					"response": []
 				},
@@ -821,8 +855,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ4ZmEyZWI3MWNlNmUwNDBhNjg5MWQiLCJpYXQiOjE3MTYxMzk5MTcsImV4cCI6MTcxNjE0MzUxN30.J3-ABb9sbEW4lkrZ-sUvI-7VwbPYsCywSWN-DdhrNTU",
-								"type": "text"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ4ZmEyZWI3MWNlNmUwNDBhNjg5MWQiLCJpYXQiOjE3MTYxMzk5MTcsImV4cCI6MTcxNjE0MzUxN30.J3-ABb9sbEW4lkrZ-sUvI-7VwbPYsCywSWN-DdhrNTU"
 							}
 						],
 						"body": {
@@ -925,8 +958,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ4ZmEyZWI3MWNlNmUwNDBhNjg5MWQiLCJpYXQiOjE3MTYxNDM1MzcsImV4cCI6MTcxNjE0NzEzN30.dei7Sc5oYp2OVFGRUTUCOqYU-SdhMAGBu7dawNaxtZc",
-								"type": "text"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ4ZmEyZWI3MWNlNmUwNDBhNjg5MWQiLCJpYXQiOjE3MTYxNDM1MzcsImV4cCI6MTcxNjE0NzEzN30.dei7Sc5oYp2OVFGRUTUCOqYU-SdhMAGBu7dawNaxtZc"
 							}
 						],
 						"body": {

@@ -12,7 +12,7 @@ export const listarReservaciones = async (req, res) => {
 
 export const crearReservacion = async (req, res) => {
     try {
-        const usuario = req.user; // Asegúrate de que req.user._id contenga el ID del usuario autenticado
+        const usuario = req.user; 
         const { habitaciones, fechaInicio, fechaFin } = req.body;
 
         async function calcularTotalReservacion(habitaciones) {
