@@ -3,12 +3,10 @@ import Hotel from "./hotel.model.js";
 
 // Listar hoteles (GET) 
 export const listarHoteles = async (req, res) => {
-
-    let hotelData;
-    hotelData = await Hotel.find({ estado: true });
+    const hoteles = await Hotel.find();
 
     res.status(200).json({
-        hotelData
+        hoteles
     })
 }
 

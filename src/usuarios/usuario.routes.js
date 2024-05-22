@@ -6,13 +6,16 @@ import {
     listarUsuarios,
     actualizarUsuario,
     updateOwnUser,
-    deleteOwnUser
+    deleteOwnUser,
+    getOwnUser
 
 } from "./usuario.controller.js";
 import { validar } from "../middlewares/validate-field.js";
 import { validarJWT } from "../helpers/validar-jwt.js";
 
 const router = Router();
+
+router.get("/getOwnUser", validarJWT, getOwnUser);
 
 router.get("/", listarUsuarios);
 

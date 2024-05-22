@@ -53,6 +53,12 @@ export const crearFactura = async (req, res) => {
     });
 }
 
+export const obtenerOwnFacturas = async (req, res) => {
+    const usuario = req.user;
+    const facturas = await Factura.find({ usuario, estado: true }).populate("reservacion").populate("reservacionEvento").populate("usuario");
+    res.status(200).json({ facturas});
+}
+
 export const obtenerFacturas = async (req, res) => {
     const facturas = await Factura.find({ estado: true }).populate("reservacion").populate("reservacionEvento").populate("usuario");
     res.status(200).json(facturas);

@@ -9,6 +9,14 @@ export const listarUsuarios = async (req, res) => {
     });
 }
 
+export const getOwnUser = async (req, res) => {
+    const id = req.user;
+    const usuario = await User.findById(id);
+    res.status(200).json({
+        usuario
+    });
+}
+
 // Crear usuario (POST)
 export const crearUsuario = async (req, res) => {
     const { nombre, apellido, email, password, role } = req.body;

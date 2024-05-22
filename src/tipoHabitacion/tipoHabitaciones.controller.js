@@ -3,9 +3,17 @@ import TipoHabitacion from "./tipoHabitacion.model.js";
 
 // Listar tipo de habitaciones (GET)
 export const listarTipoHabitaciones = async (req, res) => {
-    const tipoHabitaciones = await TipoHabitacion.find({ estado: true });
+    const tipoHabitaciones = await TipoHabitacion.find({ estado: true }).populate('paqueteServicios', 'nombrePServicio');
     res.status(200).json({
         tipoHabitaciones
+    });
+}
+
+export const getIdByName = async (req, res) => {
+    const { nombre } = req.body;
+    const tipoHabitacion = await TipoHabitacion.findOne({ nombre });
+    res.status(200).json({
+        id: tipoHabitacion._id
     });
 }
 

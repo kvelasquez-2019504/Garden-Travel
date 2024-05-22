@@ -2,10 +2,12 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { validar } from "../middlewares/validate-field.js";
 
-import { crearFactura, obtenerFacturas, eliminarFactura} from "./factura.controller.js";
+import { crearFactura, obtenerFacturas, eliminarFactura, obtenerOwnFacturas} from "./factura.controller.js";
 import { validarJWT } from "../helpers/validar-jwt.js";
 
 const router = Router();
+
+router.get('/ownBilss', validarJWT, obtenerOwnFacturas);
 
 router.get('/listar', obtenerFacturas);
 
